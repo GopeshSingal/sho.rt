@@ -1,0 +1,31 @@
+{
+    "name": "sho.rt",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "hashicorp.terraform",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-azuretools.vscode-azurecli"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "terraform.formatOnSave": true,
+                "editor.formatOnSave": true
+            }
+        }
+    },
+    "postCreateCommand": "pip install -r requirements.txt",
+    "forwardPorts": [
+        7071,
+        8000,
+        8080
+    ],
+    "remoteUser": "root"
+}
